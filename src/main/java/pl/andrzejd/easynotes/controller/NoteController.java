@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/")
 @CrossOrigin(origins = {"https://s2.andrzejd.pl", "http://s2.andrzejd.pl"}, maxAge=3600)
 public class NoteController {
 
