@@ -16,14 +16,4 @@ public class EasyNotesApplication {
 		SpringApplication.run(EasyNotesApplication.class, args);
 	}
 
-/*	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurerAdapter () {
-			@Override
-				public void addCorsMappings(CorsRegistry registry) {
-					registry.addMapping("/api").allowedOrigins("http://s2.andrzejd.pl:8080");
-				}
-		};
-	}
-*/
 }

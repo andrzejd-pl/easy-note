@@ -18,7 +18,6 @@ public class NoteController {
     @Autowired
     NoteRepository noteRepository;
 
-//    @CrossOrigin(origins = "*")
     @GetMapping("/notes")
     public List<Note> getAllNotes() {
         return noteRepository.findAll();
