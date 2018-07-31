@@ -12,11 +12,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = {"https://s2.andrzejd.pl", "http://s2.andrzejd.pl"}, maxAge=3600)
 public class NoteController {
 
     @Autowired
     NoteRepository noteRepository;
 
+//    @CrossOrigin(origins = "*")
     @GetMapping("/notes")
     public List<Note> getAllNotes() {
         return noteRepository.findAll();
