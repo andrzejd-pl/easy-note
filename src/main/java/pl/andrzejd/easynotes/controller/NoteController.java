@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/")
-@CrossOrigin(origins = {"https://s2.andrzejd.pl", "http://s2.andrzejd.pl"}, maxAge=3600)
+@CrossOrigin(origins = {"https://s2.andrzejd.pl", "http://s2.andrzejd.pl"}, maxAge = 3600)
 public class NoteController {
 
     @Autowired
@@ -29,7 +29,7 @@ public class NoteController {
     }
 
     @GetMapping("/notes/{id}")
-    public Note getNoteById(@PathVariable(value="id") Long noteId) {
+    public Note getNoteById(@PathVariable(value = "id") Long noteId) {
         return noteRepository.findById(noteId).
                 orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
     }
@@ -37,7 +37,7 @@ public class NoteController {
     @PutMapping("/notes/{id}")
     public Note updateNote(@PathVariable(value = "id") Long noteId, @Valid @RequestBody Note noteDetails) {
         Note note = noteRepository.findById(noteId)
-                .orElseThrow(()->new ResourceNotFoundException("Note", "id", noteId));
+                .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
 
         note.setTitle(noteDetails.getTitle());
         note.setContent(noteDetails.getContent());
@@ -48,7 +48,7 @@ public class NoteController {
     @DeleteMapping("/notes/{id}")
     public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long noteId) {
         Note note = noteRepository.findById(noteId)
-                .orElseThrow(()-> new ResourceNotFoundException("Note", "id", noteId));
+                .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
 
         noteRepository.delete(note);
 
